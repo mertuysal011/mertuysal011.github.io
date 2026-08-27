@@ -313,6 +313,8 @@
   .edu-date{font-family:'JetBrains Mono',monospace;color:var(--text-dim);font-size:.9rem;padding:8px 16px;border:1px solid var(--border);border-radius:100px;}
 
   /* ---------- contact ---------- */
+  /* extra bottom buffer so the last section can always scroll fully under the fixed navbar */
+  #contact{padding-bottom:calc(120px + 30vh);}
   .contact-wrap{text-align:center;}
   .contact-wrap .section-title{margin-bottom:16px;}
   .contact-sub{color:var(--text-dim);max-width:520px;margin:0 auto 50px;}
@@ -443,8 +445,8 @@
 <!-- ABOUT -->
 <section id="about" class="section">
   <div class="section-inner">
-    <span class="section-tag reveal" data-i18n="about.tag">Who I am</span>
-    <h2 class="section-title reveal" data-i18n="about.title">About</h2>
+    <span class="section-tag" data-i18n="about.tag">Who I am</span>
+    <h2 class="section-title" data-i18n="about.title">About</h2>
     <div class="about-grid">
       <div class="about-text reveal">
         <p data-i18n-html="about.p1">With a career spanning <strong>SOC analysis</strong>, <strong>ISO 27001 audits</strong>, and <strong>enterprise security architecture</strong>, I bridge the gap between technical security operations and business-aligned governance.</p>
@@ -464,8 +466,8 @@
 <!-- EXPERIENCE -->
 <section id="experience" class="section alt-bg">
   <div class="section-inner">
-    <span class="section-tag reveal" data-i18n="experience.tag">Career Path</span>
-    <h2 class="section-title reveal" data-i18n="experience.title">Experience</h2>
+    <span class="section-tag" data-i18n="experience.tag">Career Path</span>
+    <h2 class="section-title" data-i18n="experience.title">Experience</h2>
     <div class="timeline">
 
       <div class="tl-item reveal">
@@ -532,8 +534,8 @@
 <!-- SKILLS -->
 <section id="skills" class="section">
   <div class="section-inner">
-    <span class="section-tag reveal" data-i18n="skills.tag">Capabilities</span>
-    <h2 class="section-title reveal" data-i18n="skills.title">Skills</h2>
+    <span class="section-tag" data-i18n="skills.tag">Capabilities</span>
+    <h2 class="section-title" data-i18n="skills.title">Skills</h2>
 
     <div class="skills-block reveal">
       <h3 data-i18n="skills.grc">GRC Frameworks</h3>
@@ -598,8 +600,8 @@
 <!-- CERTIFICATIONS -->
 <section id="certifications" class="section alt-bg">
   <div class="section-inner">
-    <span class="section-tag reveal" data-i18n="certs.tag">Credentials</span>
-    <h2 class="section-title reveal" data-i18n="certs.title">Certifications</h2>
+    <span class="section-tag" data-i18n="certs.tag">Credentials</span>
+    <h2 class="section-title" data-i18n="certs.title">Certifications</h2>
     <div class="cert-grid">
 
       <div class="cert-card reveal">
@@ -645,8 +647,8 @@
 <!-- EDUCATION -->
 <section id="education" class="section">
   <div class="section-inner">
-    <span class="section-tag reveal" data-i18n="edu.tag">Background</span>
-    <h2 class="section-title reveal" data-i18n="edu.title">Education</h2>
+    <span class="section-tag" data-i18n="edu.tag">Background</span>
+    <h2 class="section-title" data-i18n="edu.title">Education</h2>
     <div class="edu-card reveal">
       <div>
         <div class="edu-degree" data-i18n="edu.degree">B.Sc. Information Systems Engineering</div>
@@ -661,8 +663,8 @@
 <!-- CONTACT -->
 <section id="contact" class="section alt-bg">
   <div class="section-inner contact-wrap">
-    <span class="section-tag reveal" data-i18n="contact.tag">Get in touch</span>
-    <h2 class="section-title reveal" data-i18n="contact.title">Let's Connect</h2>
+    <span class="section-tag" data-i18n="contact.tag">Get in touch</span>
+    <h2 class="section-title" data-i18n="contact.title">Let's Connect</h2>
     <p class="contact-sub reveal" data-i18n="contact.sub">Open to conversations about security architecture, GRC, and cyber risk. Reach out through any of the channels below.</p>
     <div class="contact-grid reveal">
       <a class="contact-card" href="mailto:mertuysal011@gmail.com">
@@ -928,10 +930,44 @@
     navToggle.classList.toggle('open');
     navLinks.classList.toggle('open');
   });
-  document.querySelectorAll('[data-nav]').forEach(link=>{
-    link.addEventListener('click', ()=>{
+
+  // smooth-scroll to in-page anchors, with a settle-correction pass so the
+  // landing spot stays accurate even if the viewport shifts mid-scroll
+  // (e.g. a mobile browser's address bar collapsing).
+  function scrollToId(id){
+    const el = document.getElementById(id);
+    if(!el) return;
+    const target = () => el.getBoundingClientRect().top + window.scrollY - navbar.offsetHeight;
+    window.scrollTo({top: Math.max(target(), 0), behavior:'smooth'});
+    let lastY = -1, stableCount = 0, attempts = 0;
+    (function settle(){
+      attempts++;
+      if(window.scrollY === lastY){
+        stableCount++;
+      } else {
+        stableCount = 0;
+        lastY = window.scrollY;
+      }
+      if(stableCount >= 4 || attempts > 180){
+        const drift = target() - window.scrollY;
+        if(Math.abs(drift) > 2){
+          window.scrollTo({top: Math.max(target(), 0), behavior:'auto'});
+        }
+        return;
+      }
+      requestAnimationFrame(settle);
+    })();
+  }
+
+  document.querySelectorAll('a[href^="#"]').forEach(link=>{
+    link.addEventListener('click', (e)=>{
+      const id = link.getAttribute('href').slice(1);
+      if(!id || !document.getElementById(id)) return;
+      e.preventDefault();
       navToggle.classList.remove('open');
       navLinks.classList.remove('open');
+      history.pushState(null, '', '#' + id);
+      scrollToId(id);
     });
   });
 
