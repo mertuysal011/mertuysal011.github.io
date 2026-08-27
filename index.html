@@ -3,6 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+  if('scrollRestoration' in history){ history.scrollRestoration = 'manual'; }
+  if(location.hash){ history.replaceState(null, '', location.pathname + location.search); }
+  window.scrollTo(0,0);
+</script>
 <title>Mert Uysal — Security Engineer</title>
 <meta name="description" content="Mert Uysal — Security Engineer specializing in GRC, ISO 27001, NIST CSF, risk management and cyber threat intelligence.">
 <meta name="theme-color" content="#0a0e14">
@@ -141,8 +146,8 @@
   .hero-bg{
     position:absolute;inset:0;z-index:0;
     background-image:
-      linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),
-      linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
+      linear-gradient(rgba(255,255,255,.07) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(255,255,255,.07) 1px,transparent 1px);
     background-size:56px 56px;
     -webkit-mask-image:radial-gradient(ellipse 70% 60% at 50% 35%,#000 40%,transparent 90%);
     mask-image:radial-gradient(ellipse 70% 60% at 50% 35%,#000 40%,transparent 90%);
@@ -278,9 +283,7 @@
   .lang-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:10px;}
   .lang-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px;}
   .lang-name{font-weight:600;margin-bottom:4px;}
-  .lang-level{font-size:.82rem;color:var(--text-dim);margin-bottom:12px;}
-  .lang-bar{height:5px;background:var(--surface-2);border-radius:10px;overflow:hidden;}
-  .lang-fill{height:100%;border-radius:10px;background:linear-gradient(90deg,var(--accent),var(--accent-2));width:0;transition:width 1.2s cubic-bezier(.16,1,.3,1);}
+  .lang-level{font-size:.82rem;color:var(--text-dim);}
 
   /* ---------- certifications ---------- */
   .cert-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
@@ -589,17 +592,14 @@
         <div class="lang-card">
           <div class="lang-name" data-i18n="lang.turkish">Turkish</div>
           <div class="lang-level" data-i18n="level.native">Native</div>
-          <div class="lang-bar"><div class="lang-fill" data-width="100"></div></div>
         </div>
         <div class="lang-card">
           <div class="lang-name" data-i18n="lang.english">English</div>
           <div class="lang-level" data-i18n="level.advanced">Advanced</div>
-          <div class="lang-bar"><div class="lang-fill" data-width="90"></div></div>
         </div>
         <div class="lang-card">
           <div class="lang-name" data-i18n="lang.spanish">Spanish</div>
           <div class="lang-level" data-i18n="level.intermediate">Intermediate</div>
-          <div class="lang-bar"><div class="lang-fill" data-width="55"></div></div>
         </div>
       </div>
     </div>
@@ -782,7 +782,7 @@
       "about.p1":"<strong>SOC analizi</strong>, <strong>ISO 27001 denetimleri</strong> ve <strong>kurumsal güvenlik mimarisini</strong> kapsayan bir kariyerle, teknik güvenlik operasyonları ile iş hedefleriyle uyumlu yönetişim arasındaki köprüyü kuruyorum.",
       "about.p2":"Şu anda <strong>Desoft'ta Güvenlik Mühendisi</strong> olarak, kurumsal müşteriler için güvenlik mimarileri tasarlıyor, API güvenliği ve siber tehdit istihbaratı çözümlerinin benimsenmesine rehberlik ediyorum. Daha önce <strong>PwC</strong>'de büyük kuruluşlar için ISO 27001, GDPR, SWIFT CSP ve NIST CSF değerlendirmelerine liderlik ettim; <strong>KKB — Kredi Kayıt Bürosu</strong>'nda ise güvenlik analisti olarak 7/24 Siber Savunma Merkezi'ni korudum.",
       "about.p3":"Beni motive eden şey güvenliği somutlaştırmak — çerçeveleri ve denetimleri, kuruluşların gerçekten üzerinde çalışabileceği mimarilere, politikalara ve eğitimlere dönüştürmek.",
-      "stats.years":"Siber Güvenlikte Yıl","stats.certs":"Sertifika","stats.langs":"Konuşulan Dil",
+      "stats.years":"Yıl Siber Güvenlik Tecrübesi","stats.certs":"Sertifika","stats.langs":"Konuşulan Dil",
       "experience.tag":"Kariyer Yolu","experience.title":"Deneyim",
       "exp.meta.role":"Yurtdışı Kıdemli Risk ve Uyum Uzmanı","exp.meta.date":"Eylül 2026 — Devam Ediyor",
       "exp.desoft.role":"Güvenlik Çözümleri Mimarı","exp.desoft.date":"Mart 2024 — Ağustos 2026",
@@ -975,7 +975,6 @@
       e.preventDefault();
       navToggle.classList.remove('open');
       navLinks.classList.remove('open');
-      history.pushState(null, '', '#' + id);
       scrollToId(id);
     });
   });
@@ -1005,18 +1004,6 @@
     });
   }, {threshold:.12});
   revealEls.forEach(el=>revealObserver.observe(el));
-
-  // language bars fill when visible
-  const langFills = document.querySelectorAll('.lang-fill');
-  const langObserver = new IntersectionObserver((entries)=>{
-    entries.forEach(entry=>{
-      if(entry.isIntersecting){
-        entry.target.style.width = entry.target.dataset.width + '%';
-        langObserver.unobserve(entry.target);
-      }
-    });
-  }, {threshold:.4});
-  langFills.forEach(el=>langObserver.observe(el));
 
   // cursor glow (desktop only)
   const glow = document.getElementById('cursorGlow');
