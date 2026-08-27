@@ -269,6 +269,21 @@
   .tl-list li{position:relative;padding-left:20px;color:var(--text-dim);font-size:.94rem;}
   .tl-list li::before{content:'▸';position:absolute;left:0;color:var(--accent);}
 
+  /* ---------- projects ---------- */
+  .project-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+  .project-card{
+    background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+    padding:30px;transition:border-color .25s ease,transform .25s ease;
+  }
+  .project-card:hover{border-color:var(--accent);transform:translateY(-4px);}
+  .project-icon{
+    width:44px;height:44px;border-radius:10px;background:var(--accent-soft);
+    display:flex;align-items:center;justify-content:center;margin-bottom:18px;color:var(--accent);
+  }
+  .project-icon svg{width:22px;height:22px;}
+  .project-name{font-weight:700;font-size:1.15rem;margin-bottom:10px;}
+  .project-desc{color:var(--text-dim);font-size:.95rem;margin-bottom:18px;}
+
   /* ---------- skills ---------- */
   .skills-block{margin-bottom:44px;}
   .skills-block:last-child{margin-bottom:0;}
@@ -357,6 +372,7 @@
 
   @media (max-width:860px){
     .about-grid{grid-template-columns:1fr;gap:40px;}
+    .project-grid{grid-template-columns:1fr;}
     .cert-grid{grid-template-columns:repeat(2,1fr);}
     .contact-grid{grid-template-columns:repeat(2,1fr);}
   }
@@ -403,6 +419,7 @@
       <li><a href="#home" class="nav-link" data-nav data-i18n="nav.home">Home</a></li>
       <li><a href="#about" class="nav-link" data-nav data-i18n="nav.about">About</a></li>
       <li><a href="#experience" class="nav-link" data-nav data-i18n="nav.experience">Experience</a></li>
+      <li><a href="#projects" class="nav-link" data-nav data-i18n="nav.projects">Projects</a></li>
       <li><a href="#skills" class="nav-link" data-nav data-i18n="nav.skills">Skills</a></li>
       <li><a href="#certifications" class="nav-link" data-nav data-i18n="nav.certifications">Certifications</a></li>
       <li><a href="#education" class="nav-link" data-nav data-i18n="nav.education">Education</a></li>
@@ -537,6 +554,41 @@
             <li data-i18n="exp.kkb.b5">Performed vulnerability assessments with Nessus and Nexpose and assisted in mitigating identified risks</li>
           </ul>
         </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="section">
+  <div class="section-inner">
+    <span class="section-tag" data-i18n="projects.tag">Selected Work</span>
+    <h2 class="section-title" data-i18n="projects.title">Projects</h2>
+    <div class="project-grid">
+
+      <div class="project-card reveal">
+        <div class="project-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg></div>
+        <div class="project-name" data-i18n="proj.audit.title">Information Security Audit Automation</div>
+        <div class="project-desc" data-i18n="proj.audit.desc">Developed scripts to automate information security audits. The scripts scanned security policies, performed maturity analysis, identified areas for improvement, and kept documentation continuously up to date.</div>
+        <ul class="tl-list">
+          <li data-i18n="proj.audit.b1">Helped prioritize audit findings</li>
+          <li data-i18n="proj.audit.b2">Kept security policies continuously up to date</li>
+          <li data-i18n="proj.audit.b3">Measured and tracked ISMS maturity over time</li>
+          <li data-i18n="proj.audit.b4">Automated recurring audit tasks</li>
+        </ul>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 2v2M15 2v2M9 20v2M15 20v2M2 9h2M2 15h2M20 9h2M20 15h2"/></svg></div>
+        <div class="project-name" data-i18n="proj.malware.title">On-Prem Malware Analysis Platform Deployment</div>
+        <div class="project-desc" data-i18n="proj.malware.desc">Took part in the on-premises deployment, configuration, and testing of a malware analysis solution — from sample collection to reviewing analysis outputs and delivering measurable value to the organization.</div>
+        <ul class="tl-list">
+          <li data-i18n="proj.malware.b1">Collected and processed malware samples for analysis</li>
+          <li data-i18n="proj.malware.b2">Reviewed and validated analysis outputs</li>
+          <li data-i18n="proj.malware.b3">Configured the solution for operational use</li>
+          <li data-i18n="proj.malware.b4">Delivered measurable value to the security team</li>
+        </ul>
       </div>
 
     </div>
@@ -719,7 +771,7 @@
 <script>
   const translations = {
     en: {
-      "nav.home":"Home","nav.about":"About","nav.experience":"Experience","nav.skills":"Skills",
+      "nav.home":"Home","nav.about":"About","nav.experience":"Experience","nav.projects":"Projects","nav.skills":"Skills",
       "nav.certifications":"Certifications","nav.education":"Education","nav.contact":"Contact",
       "hero.eyebrow":"Security Engineer",
       "hero.role":"Cybersecurity & GRC Professional",
@@ -755,6 +807,19 @@
       "exp.kkb.b4":"Investigated alerts from EDR, AV, WAF, DLP and IDS/IPS tools and created incident reports",
       "exp.kkb.b5":"Performed vulnerability assessments with Nessus and Nexpose and assisted in mitigating identified risks",
       "loc.istanbul":"Istanbul, Turkey","loc.ankara":"Ankara, Turkey",
+      "projects.tag":"Selected Work","projects.title":"Projects",
+      "proj.audit.title":"Information Security Audit Automation",
+      "proj.audit.desc":"Developed scripts to automate information security audits. The scripts scanned security policies, performed maturity analysis, identified areas for improvement, and kept documentation continuously up to date.",
+      "proj.audit.b1":"Helped prioritize audit findings",
+      "proj.audit.b2":"Kept security policies continuously up to date",
+      "proj.audit.b3":"Measured and tracked ISMS maturity over time",
+      "proj.audit.b4":"Automated recurring audit tasks",
+      "proj.malware.title":"On-Prem Malware Analysis Platform Deployment",
+      "proj.malware.desc":"Took part in the on-premises deployment, configuration, and testing of a malware analysis solution — from sample collection to reviewing analysis outputs and delivering measurable value to the organization.",
+      "proj.malware.b1":"Collected and processed malware samples for analysis",
+      "proj.malware.b2":"Reviewed and validated analysis outputs",
+      "proj.malware.b3":"Configured the solution for operational use",
+      "proj.malware.b4":"Delivered measurable value to the security team",
       "skills.tag":"Capabilities","skills.title":"Skills","skills.grc":"GRC Frameworks","skills.risk":"Risk & Strategy",
       "skills.tools":"Tools & Technologies","skills.languages":"Languages",
       "tag.risk1":"Risk Assessment","tag.risk2":"KRI & KPI Definition","tag.risk3":"Business Impact Analysis (BIA)",
@@ -780,7 +845,7 @@
       "footer.text":"Built with care."
     },
     tr: {
-      "nav.home":"Anasayfa","nav.about":"Hakkımda","nav.experience":"Deneyim","nav.skills":"Yetenekler",
+      "nav.home":"Anasayfa","nav.about":"Hakkımda","nav.experience":"Deneyim","nav.projects":"Projeler","nav.skills":"Yetenekler",
       "nav.certifications":"Sertifikalar","nav.education":"Eğitim","nav.contact":"İletişim",
       "hero.eyebrow":"Güvenlik Mühendisi",
       "hero.role":"Siber Güvenlik ve GRC Uzmanı",
@@ -816,6 +881,19 @@
       "exp.kkb.b4":"EDR, AV, WAF, DLP ve IDS/IPS araçlarından gelen uyarıları araştırdı ve olay raporları oluşturdu",
       "exp.kkb.b5":"Nessus ve Nexpose ile güvenlik açığı değerlendirmeleri yaptı ve tespit edilen risklerin azaltılmasına yardımcı oldu",
       "loc.istanbul":"İstanbul, Türkiye","loc.ankara":"Ankara, Türkiye",
+      "projects.tag":"Seçili Çalışmalar","projects.title":"Projeler",
+      "proj.audit.title":"Bilgi Güvenliği Denetim Otomasyonu",
+      "proj.audit.desc":"Bilgi güvenliği denetimlerinde otomasyon sağlamak için script'ler geliştirdim. Bu script'ler güvenlik politikalarını tarıyor, olgunluk analizi yapıyor, geliştirilebilir alanları tespit ediyor ve dokümantasyonu sürekli güncel tutuyordu.",
+      "proj.audit.b1":"Bulguların önceliklendirilmesine yardımcı oldu",
+      "proj.audit.b2":"Güvenlik politikalarının sürekli güncel tutulmasını sağladı",
+      "proj.audit.b3":"ISMS olgunluğunun ölçülmesini ve takip edilmesini sağladı",
+      "proj.audit.b4":"Tekrarlayan denetim görevlerini otomatikleştirdi",
+      "proj.malware.title":"On-Prem Malware Analiz Platformu Kurulumu",
+      "proj.malware.desc":"Bir malware analiz çözümünün on-prem kurulumunda, konfigürasyonunda ve testlerinde görev aldım — örnek (sample) toplanmasından analiz çıktılarının incelenmesine kadar, şirkete somut kazanımlar sağladım.",
+      "proj.malware.b1":"Analiz için malware örnekleri (sample) topladı",
+      "proj.malware.b2":"Analiz çıktılarını inceledi ve doğruladı",
+      "proj.malware.b3":"Çözümü operasyonel kullanım için konfigüre etti",
+      "proj.malware.b4":"Güvenlik ekibine somut kazanım sağladı",
       "skills.tag":"Yetkinlikler","skills.title":"Yetenekler","skills.grc":"GRC Çerçeveleri","skills.risk":"Risk ve Strateji",
       "skills.tools":"Araçlar ve Teknolojiler","skills.languages":"Diller",
       "tag.risk1":"Risk Değerlendirmesi","tag.risk2":"KRI ve KPI Tanımlama","tag.risk3":"İş Etki Analizi (BIA)",
@@ -841,7 +919,7 @@
       "footer.text":"Özenle hazırlandı."
     },
     es: {
-      "nav.home":"Inicio","nav.about":"Sobre mí","nav.experience":"Experiencia","nav.skills":"Habilidades",
+      "nav.home":"Inicio","nav.about":"Sobre mí","nav.experience":"Experiencia","nav.projects":"Proyectos","nav.skills":"Habilidades",
       "nav.certifications":"Certificaciones","nav.education":"Educación","nav.contact":"Contacto",
       "hero.eyebrow":"Ingeniero de Seguridad",
       "hero.role":"Profesional de Ciberseguridad y GRC",
@@ -877,6 +955,19 @@
       "exp.kkb.b4":"Investigó alertas de herramientas EDR, AV, WAF, DLP e IDS/IPS y elaboró informes de incidentes",
       "exp.kkb.b5":"Realizó evaluaciones de vulnerabilidades con Nessus y Nexpose y ayudó a mitigar los riesgos identificados",
       "loc.istanbul":"Estambul, Turquía","loc.ankara":"Ankara, Turquía",
+      "projects.tag":"Trabajos Destacados","projects.title":"Proyectos",
+      "proj.audit.title":"Automatización de Auditorías de Seguridad de la Información",
+      "proj.audit.desc":"Desarrollé scripts para automatizar las auditorías de seguridad de la información. Los scripts analizaban las políticas de seguridad, realizaban un análisis de madurez, identificaban áreas de mejora y mantenían la documentación continuamente actualizada.",
+      "proj.audit.b1":"Ayudó a priorizar los hallazgos de auditoría",
+      "proj.audit.b2":"Mantuvo las políticas de seguridad continuamente actualizadas",
+      "proj.audit.b3":"Midió y monitoreó la madurez del ISMS a lo largo del tiempo",
+      "proj.audit.b4":"Automatizó tareas de auditoría recurrentes",
+      "proj.malware.title":"Implementación de Plataforma de Análisis de Malware On-Prem",
+      "proj.malware.desc":"Participé en la implementación on-premise, configuración y pruebas de una solución de análisis de malware — desde la recolección de muestras hasta la revisión de los resultados del análisis, aportando valor medible a la organización.",
+      "proj.malware.b1":"Recolectó y procesó muestras de malware para análisis",
+      "proj.malware.b2":"Revisó y validó los resultados del análisis",
+      "proj.malware.b3":"Configuró la solución para su uso operativo",
+      "proj.malware.b4":"Aportó valor medible al equipo de seguridad",
       "skills.tag":"Capacidades","skills.title":"Habilidades","skills.grc":"Marcos de GRC","skills.risk":"Riesgo y Estrategia",
       "skills.tools":"Herramientas y Tecnologías","skills.languages":"Idiomas",
       "tag.risk1":"Evaluación de Riesgos","tag.risk2":"Definición de KRI y KPI","tag.risk3":"Análisis de Impacto en el Negocio (BIA)",
