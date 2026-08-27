@@ -303,6 +303,9 @@
   .cert-desc{font-size:.85rem;color:var(--text-dim);position:relative;}
 
   /* ---------- education ---------- */
+  /* generous min-height so this short section doesn't reveal the next
+     section right below it when jumped to via nav */
+  #education{min-height:calc(100vh - var(--nav-h));display:flex;flex-direction:column;justify-content:center;}
   .edu-card{
     background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
     padding:32px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;
