@@ -385,7 +385,7 @@
       max-height:0;overflow:hidden;transition:max-height .3s ease;
       margin-left:0;
     }
-    .nav-links.open{max-height:400px;}
+    .nav-links.open{max-height:calc(100vh - var(--nav-h));overflow-y:auto;-webkit-overflow-scrolling:touch;}
     .nav-links li{width:100%;}
     .nav-link{display:block;padding:18px 28px;border-bottom:1px solid var(--border);}
     .nav-link::after{display:none;}
