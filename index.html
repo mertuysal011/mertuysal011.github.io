@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mert Uysal — Security Solutions Architect</title>
-<meta name="description" content="Mert Uysal — Security Solutions Architect specializing in GRC, ISO 27001, NIST CSF, risk management and cyber threat intelligence.">
+<title>Mert Uysal — Security Engineer</title>
+<meta name="description" content="Mert Uysal — Security Engineer specializing in GRC, ISO 27001, NIST CSF, risk management and cyber threat intelligence.">
 <meta name="theme-color" content="#0a0e14">
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="Mert Uysal — Security Solutions Architect">
+<meta property="og:title" content="Mert Uysal — Security Engineer">
 <meta property="og:description" content="Cybersecurity & GRC professional — security architecture, compliance audits, and threat intelligence.">
 
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230a0e14'/%3E%3Ctext x='50' y='68' font-size='52' font-family='monospace' font-weight='700' fill='%233ee6c4' text-anchor='middle'%3EMU%3C/text%3E%3C/svg%3E">
@@ -93,13 +93,15 @@
   .nav-container{
     width:100%;max-width:var(--maxw);margin:0 auto;padding:0 28px;
     display:flex;align-items:center;justify-content:space-between;
+    gap:16px;
   }
   .logo{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:1.15rem;letter-spacing:.5px;}
   .logo span{color:var(--accent);}
-  .nav-links{display:flex;gap:2.2rem;}
+  .nav-links{display:flex;gap:2.2rem;margin-left:auto;}
   .nav-link{
     font-size:.92rem;color:var(--text-dim);font-weight:500;
     position:relative;padding:6px 0;transition:color .25s ease;
+    white-space:nowrap;
   }
   .nav-link::after{
     content:'';position:absolute;left:0;bottom:0;width:0;height:2px;
@@ -108,8 +110,21 @@
   }
   .nav-link:hover,.nav-link.active{color:var(--text);}
   .nav-link.active::after{width:100%;}
+
+  .lang-switch{
+    display:flex;gap:2px;background:var(--surface);border:1px solid var(--border);
+    border-radius:100px;padding:3px;flex-shrink:0;
+  }
+  .lang-btn{
+    font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:600;letter-spacing:.5px;
+    padding:6px 11px;border-radius:100px;background:transparent;border:none;color:var(--text-dim);
+    cursor:pointer;transition:all .25s ease;
+  }
+  .lang-btn:hover{color:var(--text);}
+  .lang-btn.active{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#04110d;}
+
   .nav-toggle{
-    display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px;
+    display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px;flex-shrink:0;
   }
   .nav-toggle span{width:22px;height:2px;background:var(--text);transition:all .25s ease;}
   .nav-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
@@ -301,7 +316,7 @@
   .contact-wrap{text-align:center;}
   .contact-wrap .section-title{margin-bottom:16px;}
   .contact-sub{color:var(--text-dim);max-width:520px;margin:0 auto 50px;}
-  .contact-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+  .contact-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;}
   .contact-card{
     background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
     padding:28px 18px;transition:all .25s ease;
@@ -329,7 +344,7 @@
   @media (max-width:860px){
     .about-grid{grid-template-columns:1fr;gap:40px;}
     .cert-grid{grid-template-columns:repeat(2,1fr);}
-    .contact-grid{grid-template-columns:repeat(2,1fr);}
+    .contact-grid{grid-template-columns:repeat(3,1fr);}
   }
 
   @media (max-width:720px){
@@ -338,6 +353,7 @@
       flex-direction:column;gap:0;background:rgba(10,14,20,.98);
       backdrop-filter:blur(14px);border-bottom:1px solid var(--border);
       max-height:0;overflow:hidden;transition:max-height .3s ease;
+      margin-left:0;
     }
     .nav-links.open{max-height:400px;}
     .nav-links li{width:100%;}
@@ -354,6 +370,11 @@
     .section{padding:90px 20px;}
     .tl-card{padding:22px 18px;}
   }
+
+  @media (max-width:380px){
+    .lang-switch{padding:2px;}
+    .lang-btn{padding:5px 8px;font-size:.68rem;}
+  }
 </style>
 </head>
 <body>
@@ -365,14 +386,19 @@
   <div class="nav-container">
     <a href="#home" class="logo">MU<span>.</span></a>
     <ul class="nav-links" id="navLinks">
-      <li><a href="#home" class="nav-link" data-nav>Home</a></li>
-      <li><a href="#about" class="nav-link" data-nav>About</a></li>
-      <li><a href="#experience" class="nav-link" data-nav>Experience</a></li>
-      <li><a href="#skills" class="nav-link" data-nav>Skills</a></li>
-      <li><a href="#certifications" class="nav-link" data-nav>Certifications</a></li>
-      <li><a href="#education" class="nav-link" data-nav>Education</a></li>
-      <li><a href="#contact" class="nav-link" data-nav>Contact</a></li>
+      <li><a href="#home" class="nav-link" data-nav data-i18n="nav.home">Home</a></li>
+      <li><a href="#about" class="nav-link" data-nav data-i18n="nav.about">About</a></li>
+      <li><a href="#experience" class="nav-link" data-nav data-i18n="nav.experience">Experience</a></li>
+      <li><a href="#skills" class="nav-link" data-nav data-i18n="nav.skills">Skills</a></li>
+      <li><a href="#certifications" class="nav-link" data-nav data-i18n="nav.certifications">Certifications</a></li>
+      <li><a href="#education" class="nav-link" data-nav data-i18n="nav.education">Education</a></li>
+      <li><a href="#contact" class="nav-link" data-nav data-i18n="nav.contact">Contact</a></li>
     </ul>
+    <div class="lang-switch" role="group" aria-label="Language selector">
+      <button class="lang-btn active" data-lang="en" type="button">EN</button>
+      <button class="lang-btn" data-lang="tr" type="button">TR</button>
+      <button class="lang-btn" data-lang="es" type="button">ES</button>
+    </div>
     <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
       <span></span><span></span><span></span>
     </button>
@@ -385,48 +411,51 @@
   <div class="hero-blob b1"></div>
   <div class="hero-blob b2"></div>
   <div class="hero-content">
-    <span class="hero-eyebrow">Security Solutions Architect</span>
+    <span class="hero-eyebrow" data-i18n="hero.eyebrow">Security Engineer</span>
     <h1>Mert <span class="highlight">Uysal</span></h1>
-    <p class="hero-role">Cybersecurity &amp; GRC Professional</p>
-    <p class="hero-desc">I help organizations design resilient security architectures, navigate compliance frameworks, and turn risk into strategy — from 24×7 SOC operations to executive-level ISMS governance.</p>
+    <p class="hero-role" data-i18n="hero.role">Cybersecurity &amp; GRC Professional</p>
+    <p class="hero-desc" data-i18n="hero.desc">I help organizations design resilient security architectures, navigate compliance frameworks, and turn risk into strategy — from 24×7 SOC operations to executive-level ISMS governance.</p>
     <div class="hero-cta">
-      <a href="#contact" class="btn btn-primary">Get in Touch</a>
+      <a href="#contact" class="btn btn-primary" data-i18n="hero.cta.contact">Get in Touch</a>
       <a href="assets/Mert_Uysal_CV.pdf" download class="btn btn-outline">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        Download CV
+        <span data-i18n="hero.cta.download">Download CV</span>
       </a>
     </div>
     <div class="hero-socials">
-      <a class="social-btn" href="mailto:mertuysal011@gmail.com" aria-label="Email" title="Email">
+      <a class="social-btn" href="mailto:mertuysal011@gmail.com" data-i18n-title="social.email" aria-label="Email" title="Email">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z" stroke="none"/><path d="M22 6c0 1.1-.9 2-2 2H4a2 2 0 0 1-2-2V6l10 6 10-6"/><path d="M2 6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6z"/></svg>
       </a>
-      <a class="social-btn" href="https://github.com/mertuysal011" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">
+      <a class="social-btn" href="https://www.linkedin.com/in/mert--uysal/" target="_blank" rel="noopener" data-i18n-title="social.linkedin" aria-label="LinkedIn" title="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.85 0-2.14 1.45-2.14 2.94v5.66H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.11 20.45H3.56V9h3.55v11.45z"/></svg>
+      </a>
+      <a class="social-btn" href="https://github.com/mertuysal011" target="_blank" rel="noopener" data-i18n-title="social.github" aria-label="GitHub" title="GitHub">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49 0-.24-.01-1.04-.01-1.89-2.78.62-3.37-1.22-3.37-1.22-.45-1.19-1.11-1.51-1.11-1.51-.91-.64.07-.63.07-.63 1 .07 1.53 1.05 1.53 1.05.89 1.57 2.34 1.12 2.91.86.09-.66.35-1.12.63-1.38-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.72 0 0 .84-.28 2.75 1.05a9.29 9.29 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.46.1 2.72.64.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.79-4.57 5.05.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.6.69.49A10.26 10.26 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></svg>
       </a>
-      <a class="social-btn" href="tel:+905439290458" aria-label="Phone" title="Phone">
+      <a class="social-btn" href="tel:+905439290458" data-i18n-title="social.phone" aria-label="Phone" title="Phone">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
       </a>
     </div>
   </div>
-  <div class="scroll-indicator"><span>Scroll</span><span class="line"></span></div>
+  <div class="scroll-indicator"><span data-i18n="hero.scroll">Scroll</span><span class="line"></span></div>
 </section>
 
 <!-- ABOUT -->
 <section id="about" class="section">
   <div class="section-inner">
-    <span class="section-tag reveal">Who I am</span>
-    <h2 class="section-title reveal">About</h2>
+    <span class="section-tag reveal" data-i18n="about.tag">Who I am</span>
+    <h2 class="section-title reveal" data-i18n="about.title">About</h2>
     <div class="about-grid">
       <div class="about-text reveal">
-        <p>With a career spanning <strong>SOC analysis</strong>, <strong>ISO 27001 audits</strong>, and <strong>enterprise security architecture</strong>, I bridge the gap between technical security operations and business-aligned governance.</p>
-        <p>Currently a <strong>Security Solutions Architect at Desoft</strong>, I design security architectures for enterprise clients and guide the adoption of API security and cyber threat intelligence solutions. Previously at <strong>PwC</strong>, I led ISO 27001, GDPR, SWIFT CSP and NIST CSF assessments for major organizations, and at <strong>KKB — Credit Bureau of Turkey</strong>, I defended a 24×7 Cyber Defence Center as a security analyst.</p>
-        <p>I'm driven by making security tangible — translating frameworks and audits into architectures, policies and training that organizations can actually run on.</p>
+        <p data-i18n-html="about.p1">With a career spanning <strong>SOC analysis</strong>, <strong>ISO 27001 audits</strong>, and <strong>enterprise security architecture</strong>, I bridge the gap between technical security operations and business-aligned governance.</p>
+        <p data-i18n-html="about.p2">Currently a <strong>Security Engineer at Desoft</strong>, I design security architectures for enterprise clients and guide the adoption of API security and cyber threat intelligence solutions. Previously at <strong>PwC</strong>, I led ISO 27001, GDPR, SWIFT CSP and NIST CSF assessments for major organizations, and at <strong>KKB — Credit Bureau of Turkey</strong>, I defended a 24×7 Cyber Defence Center as a security analyst.</p>
+        <p data-i18n="about.p3">I'm driven by making security tangible — translating frameworks and audits into architectures, policies and training that organizations can actually run on.</p>
       </div>
       <div class="stats-grid reveal">
-        <div class="stat-card"><div class="stat-number">4+</div><div class="stat-label">Years in Cybersecurity</div></div>
-        <div class="stat-card"><div class="stat-number">3</div><div class="stat-label">Organizations</div></div>
-        <div class="stat-card"><div class="stat-number">6</div><div class="stat-label">Certifications</div></div>
-        <div class="stat-card"><div class="stat-number">3</div><div class="stat-label">Languages Spoken</div></div>
+        <div class="stat-card"><div class="stat-number">6+</div><div class="stat-label" data-i18n="stats.years">Years in Cybersecurity</div></div>
+        <div class="stat-card"><div class="stat-number">3</div><div class="stat-label" data-i18n="stats.orgs">Organizations</div></div>
+        <div class="stat-card"><div class="stat-number">6</div><div class="stat-label" data-i18n="stats.certs">Certifications</div></div>
+        <div class="stat-card"><div class="stat-number">3</div><div class="stat-label" data-i18n="stats.langs">Languages Spoken</div></div>
       </div>
     </div>
   </div>
@@ -435,25 +464,25 @@
 <!-- EXPERIENCE -->
 <section id="experience" class="section alt-bg">
   <div class="section-inner">
-    <span class="section-tag reveal">Career Path</span>
-    <h2 class="section-title reveal">Experience</h2>
+    <span class="section-tag reveal" data-i18n="experience.tag">Career Path</span>
+    <h2 class="section-title reveal" data-i18n="experience.title">Experience</h2>
     <div class="timeline">
 
       <div class="tl-item reveal">
         <div class="tl-dot"></div>
         <div class="tl-card">
           <div class="tl-head">
-            <span class="tl-role">Security Solutions Architect</span>
-            <span class="tl-date">March 2024 — Present</span>
+            <span class="tl-role" data-i18n="exp.desoft.role">Security Solutions Architect</span>
+            <span class="tl-date" data-i18n="exp.desoft.date">March 2024 — August 2026</span>
           </div>
-          <div class="tl-company">Desoft <span>· Istanbul, Turkey</span></div>
+          <div class="tl-company">Desoft <span>· <span data-i18n="loc.istanbul">Istanbul, Turkey</span></span></div>
           <ul class="tl-list">
-            <li>Executed technical PoC evaluations for API Security and CTI solutions, leveraging Wallarm and ZeroFox</li>
-            <li>Monitored and reported on cyber threat intelligence using ZeroFox</li>
-            <li>Provided advanced technical consultancy on API security product management, developing integration workflows with other security tools</li>
-            <li>Designed security architectures for clients to optimize product effectiveness and align with organizational requirements</li>
-            <li>Developed and delivered technical trainings covering application security, CTI and cyber risk management</li>
-            <li>Provided strategic guidance to clients on adopting security solutions and maturing security policies</li>
+            <li data-i18n="exp.desoft.b1">Executed technical PoC evaluations for API Security and CTI solutions, leveraging Wallarm and ZeroFox</li>
+            <li data-i18n="exp.desoft.b2">Monitored and reported on cyber threat intelligence using ZeroFox</li>
+            <li data-i18n="exp.desoft.b3">Provided advanced technical consultancy on API security product management, developing integration workflows with other security tools</li>
+            <li data-i18n="exp.desoft.b4">Designed security architectures for clients to optimize product effectiveness and align with organizational requirements</li>
+            <li data-i18n="exp.desoft.b5">Developed and delivered technical trainings covering application security, CTI and cyber risk management</li>
+            <li data-i18n="exp.desoft.b6">Provided strategic guidance to clients on adopting security solutions and maturing security policies</li>
           </ul>
         </div>
       </div>
@@ -462,18 +491,18 @@
         <div class="tl-dot"></div>
         <div class="tl-card">
           <div class="tl-head">
-            <span class="tl-role">Cyber Security Consultant — Senior Associate (SA3)</span>
-            <span class="tl-date">May 2022 — March 2024</span>
+            <span class="tl-role" data-i18n="exp.pwc.role">Cyber Security Consultant — Senior Associate (SA3)</span>
+            <span class="tl-date" data-i18n="exp.pwc.date">May 2022 — March 2024</span>
           </div>
-          <div class="tl-company">PwC — PricewaterhouseCoopers <span>· Istanbul, Turkey</span></div>
+          <div class="tl-company">PwC — PricewaterhouseCoopers <span>· <span data-i18n="loc.istanbul">Istanbul, Turkey</span></span></div>
           <ul class="tl-list">
-            <li>Conducted ISO 27001 audits to identify nonconformities and vulnerabilities</li>
-            <li>Identified business assets and performed risk assessments</li>
-            <li>Led multiple audit and assessment initiatives, including SWIFT CSP, GDPR compliance reviews and NIST CSF evaluations</li>
-            <li>Created information security policies and procedures</li>
-            <li>Conducted management review meetings with executive leadership, presenting ISMS performance metrics and risk assessment outcomes</li>
-            <li>Provided security awareness trainings based on the latest threats and best practices</li>
-            <li>Suggested key performance indicators and direct measurement of results</li>
+            <li data-i18n="exp.pwc.b1">Conducted ISO 27001 audits to identify nonconformities and vulnerabilities</li>
+            <li data-i18n="exp.pwc.b2">Identified business assets and performed risk assessments</li>
+            <li data-i18n="exp.pwc.b3">Led multiple audit and assessment initiatives, including SWIFT CSP, GDPR compliance reviews and NIST CSF evaluations</li>
+            <li data-i18n="exp.pwc.b4">Created information security policies and procedures</li>
+            <li data-i18n="exp.pwc.b5">Conducted management review meetings with executive leadership, presenting ISMS performance metrics and risk assessment outcomes</li>
+            <li data-i18n="exp.pwc.b6">Provided security awareness trainings based on the latest threats and best practices</li>
+            <li data-i18n="exp.pwc.b7">Suggested key performance indicators and direct measurement of results</li>
           </ul>
         </div>
       </div>
@@ -482,16 +511,16 @@
         <div class="tl-dot"></div>
         <div class="tl-card">
           <div class="tl-head">
-            <span class="tl-role">Cyber Security Analyst</span>
-            <span class="tl-date">September 2020 — May 2022</span>
+            <span class="tl-role" data-i18n="exp.kkb.role">Cyber Security Analyst</span>
+            <span class="tl-date" data-i18n="exp.kkb.date">September 2020 — May 2022</span>
           </div>
-          <div class="tl-company">KKB — Credit Bureau of Turkey <span>· Istanbul, Turkey</span></div>
+          <div class="tl-company"><span data-i18n="exp.kkb.company">KKB — Credit Bureau of Turkey</span> <span>· <span data-i18n="loc.istanbul">Istanbul, Turkey</span></span></div>
           <ul class="tl-list">
-            <li>Monitored and analyzed security events in a 24×7 Cyber Defence Center</li>
-            <li>Created and tested new detection rules for cyber threats using Splunk</li>
-            <li>Monitored and reported on cyber threat intelligence using Recorded Future</li>
-            <li>Investigated alerts from EDR, AV, WAF, DLP and IDS/IPS tools and created incident reports</li>
-            <li>Performed vulnerability assessments with Nessus and Nexpose and assisted in mitigating identified risks</li>
+            <li data-i18n="exp.kkb.b1">Monitored and analyzed security events in a 24×7 Cyber Defence Center</li>
+            <li data-i18n="exp.kkb.b2">Created and tested new detection rules for cyber threats using Splunk</li>
+            <li data-i18n="exp.kkb.b3">Monitored and reported on cyber threat intelligence using Recorded Future</li>
+            <li data-i18n="exp.kkb.b4">Investigated alerts from EDR, AV, WAF, DLP and IDS/IPS tools and created incident reports</li>
+            <li data-i18n="exp.kkb.b5">Performed vulnerability assessments with Nessus and Nexpose and assisted in mitigating identified risks</li>
           </ul>
         </div>
       </div>
@@ -503,11 +532,11 @@
 <!-- SKILLS -->
 <section id="skills" class="section">
   <div class="section-inner">
-    <span class="section-tag reveal">Capabilities</span>
-    <h2 class="section-title reveal">Skills</h2>
+    <span class="section-tag reveal" data-i18n="skills.tag">Capabilities</span>
+    <h2 class="section-title reveal" data-i18n="skills.title">Skills</h2>
 
     <div class="skills-block reveal">
-      <h3>GRC Frameworks</h3>
+      <h3 data-i18n="skills.grc">GRC Frameworks</h3>
       <div class="tag-cloud">
         <span class="tag">NIST CSF</span>
         <span class="tag">ISO 27001</span>
@@ -519,18 +548,18 @@
     </div>
 
     <div class="skills-block reveal">
-      <h3>Risk &amp; Strategy</h3>
+      <h3 data-i18n="skills.risk">Risk &amp; Strategy</h3>
       <div class="tag-cloud">
-        <span class="tag">Risk Assessment</span>
-        <span class="tag">KRI &amp; KPI Definition</span>
-        <span class="tag">Business Impact Analysis (BIA)</span>
-        <span class="tag">Crisis Management</span>
-        <span class="tag">Security Architecture Design</span>
+        <span class="tag" data-i18n="tag.risk1">Risk Assessment</span>
+        <span class="tag" data-i18n="tag.risk2">KRI &amp; KPI Definition</span>
+        <span class="tag" data-i18n="tag.risk3">Business Impact Analysis (BIA)</span>
+        <span class="tag" data-i18n="tag.risk4">Crisis Management</span>
+        <span class="tag" data-i18n="tag.risk5">Security Architecture Design</span>
       </div>
     </div>
 
     <div class="skills-block reveal">
-      <h3>Tools &amp; Technologies</h3>
+      <h3 data-i18n="skills.tools">Tools &amp; Technologies</h3>
       <div class="tag-cloud">
         <span class="tag">Splunk</span>
         <span class="tag">Recorded Future</span>
@@ -544,21 +573,21 @@
     </div>
 
     <div class="skills-block reveal">
-      <h3>Languages</h3>
+      <h3 data-i18n="skills.languages">Languages</h3>
       <div class="lang-grid">
         <div class="lang-card">
-          <div class="lang-name">Turkish</div>
-          <div class="lang-level">Native</div>
+          <div class="lang-name" data-i18n="lang.turkish">Turkish</div>
+          <div class="lang-level" data-i18n="level.native">Native</div>
           <div class="lang-bar"><div class="lang-fill" data-width="100"></div></div>
         </div>
         <div class="lang-card">
-          <div class="lang-name">English</div>
-          <div class="lang-level">Advanced</div>
+          <div class="lang-name" data-i18n="lang.english">English</div>
+          <div class="lang-level" data-i18n="level.advanced">Advanced</div>
           <div class="lang-bar"><div class="lang-fill" data-width="90"></div></div>
         </div>
         <div class="lang-card">
-          <div class="lang-name">Spanish</div>
-          <div class="lang-level">Intermediate</div>
+          <div class="lang-name" data-i18n="lang.spanish">Spanish</div>
+          <div class="lang-level" data-i18n="level.intermediate">Intermediate</div>
           <div class="lang-bar"><div class="lang-fill" data-width="55"></div></div>
         </div>
       </div>
@@ -569,44 +598,44 @@
 <!-- CERTIFICATIONS -->
 <section id="certifications" class="section alt-bg">
   <div class="section-inner">
-    <span class="section-tag reveal">Credentials</span>
-    <h2 class="section-title reveal">Certifications</h2>
+    <span class="section-tag reveal" data-i18n="certs.tag">Credentials</span>
+    <h2 class="section-title reveal" data-i18n="certs.title">Certifications</h2>
     <div class="cert-grid">
 
       <div class="cert-card reveal">
         <div class="cert-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
         <div class="cert-name">CompTIA Security+</div>
-        <div class="cert-desc">Core cybersecurity principles &amp; best practices</div>
+        <div class="cert-desc" data-i18n="cert.security+.desc">Core cybersecurity principles &amp; best practices</div>
       </div>
 
       <div class="cert-card reveal">
         <div class="cert-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
         <div class="cert-name">ISO 27001 Lead Auditor</div>
-        <div class="cert-desc">Information security management systems</div>
+        <div class="cert-desc" data-i18n="cert.iso27001.desc">Information security management systems</div>
       </div>
 
       <div class="cert-card reveal">
         <div class="cert-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
         <div class="cert-name">ISO 42001 Lead Auditor</div>
-        <div class="cert-desc">AI management systems governance</div>
+        <div class="cert-desc" data-i18n="cert.iso42001.desc">AI management systems governance</div>
       </div>
 
       <div class="cert-card reveal">
         <div class="cert-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M8 2v4M16 2v4"/></svg></div>
         <div class="cert-name">Microsoft SC-100</div>
-        <div class="cert-desc">Cybersecurity Architect Expert</div>
+        <div class="cert-desc" data-i18n="cert.sc100.desc">Cybersecurity Architect Expert</div>
       </div>
 
       <div class="cert-card reveal">
         <div class="cert-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M8 2v4M16 2v4"/></svg></div>
         <div class="cert-name">Microsoft SC-200</div>
-        <div class="cert-desc">Security Operations Analyst Associate</div>
+        <div class="cert-desc" data-i18n="cert.sc200.desc">Security Operations Analyst Associate</div>
       </div>
 
       <div class="cert-card reveal">
         <div class="cert-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v4M8 23h8"/></svg></div>
         <div class="cert-name">eJPT</div>
-        <div class="cert-desc">Junior Penetration Tester</div>
+        <div class="cert-desc" data-i18n="cert.ejpt.desc">Junior Penetration Tester</div>
       </div>
 
     </div>
@@ -616,13 +645,13 @@
 <!-- EDUCATION -->
 <section id="education" class="section">
   <div class="section-inner">
-    <span class="section-tag reveal">Background</span>
-    <h2 class="section-title reveal">Education</h2>
+    <span class="section-tag reveal" data-i18n="edu.tag">Background</span>
+    <h2 class="section-title reveal" data-i18n="edu.title">Education</h2>
     <div class="edu-card reveal">
       <div>
-        <div class="edu-degree">B.Sc. Information Systems Engineering</div>
+        <div class="edu-degree" data-i18n="edu.degree">B.Sc. Information Systems Engineering</div>
         <div class="edu-school">Sakarya University</div>
-        <div class="edu-loc">Sakarya, Turkey</div>
+        <div class="edu-loc" data-i18n="edu.loc">Sakarya, Turkey</div>
       </div>
       <div class="edu-date">2016 — 2020</div>
     </div>
@@ -632,39 +661,254 @@
 <!-- CONTACT -->
 <section id="contact" class="section alt-bg">
   <div class="section-inner contact-wrap">
-    <span class="section-tag reveal">Get in touch</span>
-    <h2 class="section-title reveal">Let's Connect</h2>
-    <p class="contact-sub reveal">Open to conversations about security architecture, GRC, and cyber risk. Reach out through any of the channels below.</p>
+    <span class="section-tag reveal" data-i18n="contact.tag">Get in touch</span>
+    <h2 class="section-title reveal" data-i18n="contact.title">Let's Connect</h2>
+    <p class="contact-sub reveal" data-i18n="contact.sub">Open to conversations about security architecture, GRC, and cyber risk. Reach out through any of the channels below.</p>
     <div class="contact-grid reveal">
       <a class="contact-card" href="mailto:mertuysal011@gmail.com">
         <div class="c-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 6c0 1.1-.9 2-2 2H4a2 2 0 0 1-2-2V6l10 6 10-6"/><path d="M2 6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6z"/></svg></div>
-        <div class="c-label">Email</div>
+        <div class="c-label" data-i18n="contact.email.label">Email</div>
         <div class="c-value">mertuysal011@gmail.com</div>
       </a>
       <a class="contact-card" href="tel:+905439290458">
         <div class="c-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
-        <div class="c-label">Phone</div>
+        <div class="c-label" data-i18n="contact.phone.label">Phone</div>
         <div class="c-value">+90 543 929 04 58</div>
+      </a>
+      <a class="contact-card" href="https://www.linkedin.com/in/mert--uysal/" target="_blank" rel="noopener">
+        <div class="c-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.85 0-2.14 1.45-2.14 2.94v5.66H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.11 20.45H3.56V9h3.55v11.45z"/></svg></div>
+        <div class="c-label" data-i18n="contact.linkedin.label">LinkedIn</div>
+        <div class="c-value">/in/mert--uysal</div>
       </a>
       <a class="contact-card" href="https://github.com/mertuysal011" target="_blank" rel="noopener">
         <div class="c-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49 0-.24-.01-1.04-.01-1.89-2.78.62-3.37-1.22-3.37-1.22-.45-1.19-1.11-1.51-1.11-1.51-.91-.64.07-.63.07-.63 1 .07 1.53 1.05 1.53 1.05.89 1.57 2.34 1.12 2.91.86.09-.66.35-1.12.63-1.38-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.72 0 0 .84-.28 2.75 1.05a9.29 9.29 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.46.1 2.72.64.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.79-4.57 5.05.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.6.69.49A10.26 10.26 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></svg></div>
-        <div class="c-label">GitHub</div>
+        <div class="c-label" data-i18n="contact.github.label">GitHub</div>
         <div class="c-value">@mertuysal011</div>
       </a>
       <a class="contact-card" href="https://maps.google.com/?q=Istanbul,Turkey" target="_blank" rel="noopener">
         <div class="c-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-        <div class="c-label">Location</div>
-        <div class="c-value">Istanbul, Turkey</div>
+        <div class="c-label" data-i18n="contact.location.label">Location</div>
+        <div class="c-value" data-i18n="loc.istanbul">Istanbul, Turkey</div>
       </a>
     </div>
   </div>
 </section>
 
 <footer>
-  <p>© <span id="year"></span> <span class="mono">Mert Uysal</span> — Built with care.</p>
+  <p>© <span id="year"></span> <span class="mono">Mert Uysal</span> — <span data-i18n="footer.text">Built with care.</span></p>
 </footer>
 
 <script>
+  const translations = {
+    en: {
+      "nav.home":"Home","nav.about":"About","nav.experience":"Experience","nav.skills":"Skills",
+      "nav.certifications":"Certifications","nav.education":"Education","nav.contact":"Contact",
+      "hero.eyebrow":"Security Engineer",
+      "hero.role":"Cybersecurity & GRC Professional",
+      "hero.desc":"I help organizations design resilient security architectures, navigate compliance frameworks, and turn risk into strategy — from 24×7 SOC operations to executive-level ISMS governance.",
+      "hero.cta.contact":"Get in Touch",
+      "hero.cta.download":"Download CV",
+      "hero.scroll":"Scroll",
+      "social.email":"Email","social.linkedin":"LinkedIn","social.github":"GitHub","social.phone":"Phone",
+      "about.tag":"Who I am","about.title":"About",
+      "about.p1":"With a career spanning <strong>SOC analysis</strong>, <strong>ISO 27001 audits</strong>, and <strong>enterprise security architecture</strong>, I bridge the gap between technical security operations and business-aligned governance.",
+      "about.p2":"Currently a <strong>Security Engineer at Desoft</strong>, I design security architectures for enterprise clients and guide the adoption of API security and cyber threat intelligence solutions. Previously at <strong>PwC</strong>, I led ISO 27001, GDPR, SWIFT CSP and NIST CSF assessments for major organizations, and at <strong>KKB — Credit Bureau of Turkey</strong>, I defended a 24×7 Cyber Defence Center as a security analyst.",
+      "about.p3":"I'm driven by making security tangible — translating frameworks and audits into architectures, policies and training that organizations can actually run on.",
+      "stats.years":"Years in Cybersecurity","stats.orgs":"Organizations","stats.certs":"Certifications","stats.langs":"Languages Spoken",
+      "experience.tag":"Career Path","experience.title":"Experience",
+      "exp.desoft.role":"Security Solutions Architect","exp.desoft.date":"March 2024 — August 2026",
+      "exp.desoft.b1":"Executed technical PoC evaluations for API Security and CTI solutions, leveraging Wallarm and ZeroFox",
+      "exp.desoft.b2":"Monitored and reported on cyber threat intelligence using ZeroFox",
+      "exp.desoft.b3":"Provided advanced technical consultancy on API security product management, developing integration workflows with other security tools",
+      "exp.desoft.b4":"Designed security architectures for clients to optimize product effectiveness and align with organizational requirements",
+      "exp.desoft.b5":"Developed and delivered technical trainings covering application security, CTI and cyber risk management",
+      "exp.desoft.b6":"Provided strategic guidance to clients on adopting security solutions and maturing security policies",
+      "exp.pwc.role":"Cyber Security Consultant — Senior Associate (SA3)","exp.pwc.date":"May 2022 — March 2024",
+      "exp.pwc.b1":"Conducted ISO 27001 audits to identify nonconformities and vulnerabilities",
+      "exp.pwc.b2":"Identified business assets and performed risk assessments",
+      "exp.pwc.b3":"Led multiple audit and assessment initiatives, including SWIFT CSP, GDPR compliance reviews and NIST CSF evaluations",
+      "exp.pwc.b4":"Created information security policies and procedures",
+      "exp.pwc.b5":"Conducted management review meetings with executive leadership, presenting ISMS performance metrics and risk assessment outcomes",
+      "exp.pwc.b6":"Provided security awareness trainings based on the latest threats and best practices",
+      "exp.pwc.b7":"Suggested key performance indicators and direct measurement of results",
+      "exp.kkb.role":"Cyber Security Analyst","exp.kkb.company":"KKB — Credit Bureau of Turkey","exp.kkb.date":"September 2020 — May 2022",
+      "exp.kkb.b1":"Monitored and analyzed security events in a 24×7 Cyber Defence Center",
+      "exp.kkb.b2":"Created and tested new detection rules for cyber threats using Splunk",
+      "exp.kkb.b3":"Monitored and reported on cyber threat intelligence using Recorded Future",
+      "exp.kkb.b4":"Investigated alerts from EDR, AV, WAF, DLP and IDS/IPS tools and created incident reports",
+      "exp.kkb.b5":"Performed vulnerability assessments with Nessus and Nexpose and assisted in mitigating identified risks",
+      "loc.istanbul":"Istanbul, Turkey",
+      "skills.tag":"Capabilities","skills.title":"Skills","skills.grc":"GRC Frameworks","skills.risk":"Risk & Strategy",
+      "skills.tools":"Tools & Technologies","skills.languages":"Languages",
+      "tag.risk1":"Risk Assessment","tag.risk2":"KRI & KPI Definition","tag.risk3":"Business Impact Analysis (BIA)",
+      "tag.risk4":"Crisis Management","tag.risk5":"Security Architecture Design",
+      "lang.turkish":"Turkish","lang.english":"English","lang.spanish":"Spanish",
+      "level.native":"Native","level.advanced":"Advanced","level.intermediate":"Intermediate",
+      "certs.tag":"Credentials","certs.title":"Certifications",
+      "cert.security+.desc":"Core cybersecurity principles & best practices",
+      "cert.iso27001.desc":"Information security management systems",
+      "cert.iso42001.desc":"AI management systems governance",
+      "cert.sc100.desc":"Cybersecurity Architect Expert",
+      "cert.sc200.desc":"Security Operations Analyst Associate",
+      "cert.ejpt.desc":"Junior Penetration Tester",
+      "edu.tag":"Background","edu.title":"Education",
+      "edu.degree":"B.Sc. Information Systems Engineering","edu.loc":"Sakarya, Turkey",
+      "contact.tag":"Get in touch","contact.title":"Let's Connect",
+      "contact.sub":"Open to conversations about security architecture, GRC, and cyber risk. Reach out through any of the channels below.",
+      "contact.email.label":"Email","contact.phone.label":"Phone","contact.linkedin.label":"LinkedIn",
+      "contact.github.label":"GitHub","contact.location.label":"Location",
+      "footer.text":"Built with care."
+    },
+    tr: {
+      "nav.home":"Anasayfa","nav.about":"Hakkımda","nav.experience":"Deneyim","nav.skills":"Yetenekler",
+      "nav.certifications":"Sertifikalar","nav.education":"Eğitim","nav.contact":"İletişim",
+      "hero.eyebrow":"Güvenlik Mühendisi",
+      "hero.role":"Siber Güvenlik ve GRC Uzmanı",
+      "hero.desc":"Kuruluşların dayanıklı güvenlik mimarileri tasarlamasına, uyumluluk çerçevelerinde yol almasına ve riski stratejiye dönüştürmesine yardımcı oluyorum — 7/24 SOC operasyonlarından yönetici seviyesinde ISMS yönetişimine kadar.",
+      "hero.cta.contact":"İletişime Geç",
+      "hero.cta.download":"CV İndir",
+      "hero.scroll":"Kaydır",
+      "social.email":"E-posta","social.linkedin":"LinkedIn","social.github":"GitHub","social.phone":"Telefon",
+      "about.tag":"Ben kimim","about.title":"Hakkımda",
+      "about.p1":"<strong>SOC analizi</strong>, <strong>ISO 27001 denetimleri</strong> ve <strong>kurumsal güvenlik mimarisini</strong> kapsayan bir kariyerle, teknik güvenlik operasyonları ile iş hedefleriyle uyumlu yönetişim arasındaki köprüyü kuruyorum.",
+      "about.p2":"Şu anda <strong>Desoft'ta Güvenlik Mühendisi</strong> olarak, kurumsal müşteriler için güvenlik mimarileri tasarlıyor, API güvenliği ve siber tehdit istihbaratı çözümlerinin benimsenmesine rehberlik ediyorum. Daha önce <strong>PwC</strong>'de büyük kuruluşlar için ISO 27001, GDPR, SWIFT CSP ve NIST CSF değerlendirmelerine liderlik ettim; <strong>KKB — Kredi Kayıt Bürosu</strong>'nda ise güvenlik analisti olarak 7/24 Siber Savunma Merkezi'ni korudum.",
+      "about.p3":"Beni motive eden şey güvenliği somutlaştırmak — çerçeveleri ve denetimleri, kuruluşların gerçekten üzerinde çalışabileceği mimarilere, politikalara ve eğitimlere dönüştürmek.",
+      "stats.years":"Siber Güvenlikte Yıl","stats.orgs":"Kurum","stats.certs":"Sertifika","stats.langs":"Konuşulan Dil",
+      "experience.tag":"Kariyer Yolu","experience.title":"Deneyim",
+      "exp.desoft.role":"Güvenlik Çözümleri Mimarı","exp.desoft.date":"Mart 2024 — Ağustos 2026",
+      "exp.desoft.b1":"Wallarm ve ZeroFox'tan yararlanarak API Güvenliği ve CTI çözümleri için teknik PoC değerlendirmeleri gerçekleştirdi",
+      "exp.desoft.b2":"ZeroFox kullanarak siber tehdit istihbaratını izledi ve raporladı",
+      "exp.desoft.b3":"API güvenliği ürün yönetimi konusunda ileri düzey teknik danışmanlık sağladı, diğer güvenlik araçlarıyla entegrasyon iş akışları geliştirdi",
+      "exp.desoft.b4":"Ürün etkinliğini optimize etmek ve kurumsal gereksinimlerle uyumlu olmak için müşteriler için güvenlik mimarileri tasarladı",
+      "exp.desoft.b5":"Uygulama güvenliği, CTI ve siber risk yönetimini kapsayan teknik eğitimler geliştirdi ve verdi",
+      "exp.desoft.b6":"Müşterilere güvenlik çözümlerini benimseme ve güvenlik politikalarını olgunlaştırma konusunda stratejik rehberlik sağladı",
+      "exp.pwc.role":"Siber Güvenlik Danışmanı — Kıdemli Uzman (SA3)","exp.pwc.date":"Mayıs 2022 — Mart 2024",
+      "exp.pwc.b1":"Uygunsuzlukları ve güvenlik açıklarını belirlemek için ISO 27001 denetimleri gerçekleştirdi",
+      "exp.pwc.b2":"İş varlıklarını belirledi ve risk değerlendirmeleri yaptı",
+      "exp.pwc.b3":"SWIFT CSP, GDPR uyumluluk incelemeleri ve NIST CSF değerlendirmeleri dahil olmak üzere birçok denetim ve değerlendirme girişimine liderlik etti",
+      "exp.pwc.b4":"Bilgi güvenliği politikaları ve prosedürleri oluşturdu",
+      "exp.pwc.b5":"Üst yönetimle yönetim gözden geçirme toplantıları düzenleyerek ISMS performans metriklerini ve risk değerlendirme sonuçlarını sundu",
+      "exp.pwc.b6":"Güncel tehditlere ve en iyi uygulamalara dayalı güvenlik farkındalık eğitimleri verdi",
+      "exp.pwc.b7":"Anahtar performans göstergeleri ve sonuçların doğrudan ölçümü konusunda önerilerde bulundu",
+      "exp.kkb.role":"Siber Güvenlik Analisti","exp.kkb.company":"KKB — Kredi Kayıt Bürosu","exp.kkb.date":"Eylül 2020 — Mayıs 2022",
+      "exp.kkb.b1":"7/24 Siber Savunma Merkezi'nde güvenlik olaylarını izledi ve analiz etti",
+      "exp.kkb.b2":"Splunk kullanarak siber tehditler için yeni tespit kuralları oluşturdu ve test etti",
+      "exp.kkb.b3":"Recorded Future kullanarak siber tehdit istihbaratını izledi ve raporladı",
+      "exp.kkb.b4":"EDR, AV, WAF, DLP ve IDS/IPS araçlarından gelen uyarıları araştırdı ve olay raporları oluşturdu",
+      "exp.kkb.b5":"Nessus ve Nexpose ile güvenlik açığı değerlendirmeleri yaptı ve tespit edilen risklerin azaltılmasına yardımcı oldu",
+      "loc.istanbul":"İstanbul, Türkiye",
+      "skills.tag":"Yetkinlikler","skills.title":"Yetenekler","skills.grc":"GRC Çerçeveleri","skills.risk":"Risk ve Strateji",
+      "skills.tools":"Araçlar ve Teknolojiler","skills.languages":"Diller",
+      "tag.risk1":"Risk Değerlendirmesi","tag.risk2":"KRI ve KPI Tanımlama","tag.risk3":"İş Etki Analizi (BIA)",
+      "tag.risk4":"Kriz Yönetimi","tag.risk5":"Güvenlik Mimarisi Tasarımı",
+      "lang.turkish":"Türkçe","lang.english":"İngilizce","lang.spanish":"İspanyolca",
+      "level.native":"Anadil","level.advanced":"İleri Düzey","level.intermediate":"Orta Düzey",
+      "certs.tag":"Yeterlilikler","certs.title":"Sertifikalar",
+      "cert.security+.desc":"Temel siber güvenlik ilkeleri ve en iyi uygulamalar",
+      "cert.iso27001.desc":"Bilgi güvenliği yönetim sistemleri",
+      "cert.iso42001.desc":"Yapay zeka yönetim sistemleri yönetişimi",
+      "cert.sc100.desc":"Siber Güvenlik Mimarı Uzmanı",
+      "cert.sc200.desc":"Güvenlik Operasyonları Analisti",
+      "cert.ejpt.desc":"Junior Sızma Testi Uzmanı",
+      "edu.tag":"Geçmiş","edu.title":"Eğitim",
+      "edu.degree":"Bilgi Sistemleri Mühendisliği Lisans","edu.loc":"Sakarya, Türkiye",
+      "contact.tag":"İletişime geç","contact.title":"Hadi Bağlantı Kuralım",
+      "contact.sub":"Güvenlik mimarisi, GRC ve siber risk üzerine sohbetlere açığım. Aşağıdaki kanallardan herhangi biri üzerinden ulaşabilirsiniz.",
+      "contact.email.label":"E-posta","contact.phone.label":"Telefon","contact.linkedin.label":"LinkedIn",
+      "contact.github.label":"GitHub","contact.location.label":"Konum",
+      "footer.text":"Özenle hazırlandı."
+    },
+    es: {
+      "nav.home":"Inicio","nav.about":"Sobre mí","nav.experience":"Experiencia","nav.skills":"Habilidades",
+      "nav.certifications":"Certificaciones","nav.education":"Educación","nav.contact":"Contacto",
+      "hero.eyebrow":"Ingeniero de Seguridad",
+      "hero.role":"Profesional de Ciberseguridad y GRC",
+      "hero.desc":"Ayudo a las organizaciones a diseñar arquitecturas de seguridad resilientes, navegar marcos de cumplimiento y convertir el riesgo en estrategia — desde operaciones de SOC 24×7 hasta la gobernanza de ISMS a nivel ejecutivo.",
+      "hero.cta.contact":"Ponte en contacto",
+      "hero.cta.download":"Descargar CV",
+      "hero.scroll":"Desplázate",
+      "social.email":"Correo electrónico","social.linkedin":"LinkedIn","social.github":"GitHub","social.phone":"Teléfono",
+      "about.tag":"Quién soy","about.title":"Sobre mí",
+      "about.p1":"Con una trayectoria que abarca <strong>análisis de SOC</strong>, <strong>auditorías ISO 27001</strong> y <strong>arquitectura de seguridad empresarial</strong>, conecto las operaciones técnicas de seguridad con la gobernanza alineada al negocio.",
+      "about.p2":"Actualmente como <strong>Ingeniero de Seguridad en Desoft</strong>, diseño arquitecturas de seguridad para clientes empresariales y guío la adopción de soluciones de seguridad de API e inteligencia de amenazas. Anteriormente en <strong>PwC</strong>, lideré evaluaciones de ISO 27001, GDPR, SWIFT CSP y NIST CSF para grandes organizaciones, y en <strong>KKB — Buró de Crédito de Turquía</strong>, defendí un Centro de Defensa Cibernética 24×7 como analista de seguridad.",
+      "about.p3":"Me motiva hacer tangible la seguridad — traducir marcos y auditorías en arquitecturas, políticas y capacitaciones que las organizaciones puedan realmente utilizar.",
+      "stats.years":"Años en Ciberseguridad","stats.orgs":"Organizaciones","stats.certs":"Certificaciones","stats.langs":"Idiomas Hablados",
+      "experience.tag":"Trayectoria Profesional","experience.title":"Experiencia",
+      "exp.desoft.role":"Arquitecto de Soluciones de Seguridad","exp.desoft.date":"Marzo 2024 — Agosto 2026",
+      "exp.desoft.b1":"Ejecutó evaluaciones técnicas de PoC para soluciones de Seguridad de API y CTI, utilizando Wallarm y ZeroFox",
+      "exp.desoft.b2":"Monitoreó e informó sobre inteligencia de amenazas cibernéticas utilizando ZeroFox",
+      "exp.desoft.b3":"Brindó consultoría técnica avanzada en gestión de productos de seguridad de API, desarrollando flujos de integración con otras herramientas de seguridad",
+      "exp.desoft.b4":"Diseñó arquitecturas de seguridad para clientes con el fin de optimizar la eficacia del producto y alinearse con los requisitos organizacionales",
+      "exp.desoft.b5":"Desarrolló e impartió capacitaciones técnicas sobre seguridad de aplicaciones, CTI y gestión de riesgos cibernéticos",
+      "exp.desoft.b6":"Brindó orientación estratégica a los clientes sobre la adopción de soluciones de seguridad y la maduración de políticas de seguridad",
+      "exp.pwc.role":"Consultor de Ciberseguridad — Asociado Senior (SA3)","exp.pwc.date":"Mayo 2022 — Marzo 2024",
+      "exp.pwc.b1":"Realizó auditorías ISO 27001 para identificar no conformidades y vulnerabilidades",
+      "exp.pwc.b2":"Identificó activos empresariales y realizó evaluaciones de riesgo",
+      "exp.pwc.b3":"Lideró múltiples iniciativas de auditoría y evaluación, incluyendo SWIFT CSP, revisiones de cumplimiento de GDPR y evaluaciones NIST CSF",
+      "exp.pwc.b4":"Creó políticas y procedimientos de seguridad de la información",
+      "exp.pwc.b5":"Realizó reuniones de revisión de gestión con la dirección ejecutiva, presentando métricas de desempeño del SGSI y resultados de evaluación de riesgos",
+      "exp.pwc.b6":"Impartió capacitaciones de concientización sobre seguridad basadas en las últimas amenazas y mejores prácticas",
+      "exp.pwc.b7":"Propuso indicadores clave de desempeño y medición directa de resultados",
+      "exp.kkb.role":"Analista de Ciberseguridad","exp.kkb.company":"KKB — Buró de Crédito de Turquía","exp.kkb.date":"Septiembre 2020 — Mayo 2022",
+      "exp.kkb.b1":"Monitoreó y analizó eventos de seguridad en un Centro de Defensa Cibernética 24×7",
+      "exp.kkb.b2":"Creó y probó nuevas reglas de detección para amenazas cibernéticas utilizando Splunk",
+      "exp.kkb.b3":"Monitoreó e informó sobre inteligencia de amenazas cibernéticas utilizando Recorded Future",
+      "exp.kkb.b4":"Investigó alertas de herramientas EDR, AV, WAF, DLP e IDS/IPS y elaboró informes de incidentes",
+      "exp.kkb.b5":"Realizó evaluaciones de vulnerabilidades con Nessus y Nexpose y ayudó a mitigar los riesgos identificados",
+      "loc.istanbul":"Estambul, Turquía",
+      "skills.tag":"Capacidades","skills.title":"Habilidades","skills.grc":"Marcos de GRC","skills.risk":"Riesgo y Estrategia",
+      "skills.tools":"Herramientas y Tecnologías","skills.languages":"Idiomas",
+      "tag.risk1":"Evaluación de Riesgos","tag.risk2":"Definición de KRI y KPI","tag.risk3":"Análisis de Impacto en el Negocio (BIA)",
+      "tag.risk4":"Gestión de Crisis","tag.risk5":"Diseño de Arquitectura de Seguridad",
+      "lang.turkish":"Turco","lang.english":"Inglés","lang.spanish":"Español",
+      "level.native":"Nativo","level.advanced":"Avanzado","level.intermediate":"Intermedio",
+      "certs.tag":"Credenciales","certs.title":"Certificaciones",
+      "cert.security+.desc":"Principios y mejores prácticas fundamentales de ciberseguridad",
+      "cert.iso27001.desc":"Sistemas de gestión de seguridad de la información",
+      "cert.iso42001.desc":"Gobernanza de sistemas de gestión de IA",
+      "cert.sc100.desc":"Experto en Arquitectura de Ciberseguridad",
+      "cert.sc200.desc":"Asociado en Análisis de Operaciones de Seguridad",
+      "cert.ejpt.desc":"Probador de Penetración Junior",
+      "edu.tag":"Trayectoria","edu.title":"Educación",
+      "edu.degree":"Ingeniería en Sistemas de Información (Licenciatura)","edu.loc":"Sakarya, Turquía",
+      "contact.tag":"Ponte en contacto","contact.title":"Conectemos",
+      "contact.sub":"Abierto a conversaciones sobre arquitectura de seguridad, GRC y riesgo cibernético. Ponte en contacto a través de cualquiera de los siguientes canales.",
+      "contact.email.label":"Correo","contact.phone.label":"Teléfono","contact.linkedin.label":"LinkedIn",
+      "contact.github.label":"GitHub","contact.location.label":"Ubicación",
+      "footer.text":"Hecho con dedicación."
+    }
+  };
+
+  function applyLanguage(lang){
+    if(!translations[lang]) lang = 'en';
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-i18n]').forEach(el=>{
+      const key = el.getAttribute('data-i18n');
+      const val = translations[lang][key];
+      if(val !== undefined) el.textContent = val;
+    });
+    document.querySelectorAll('[data-i18n-html]').forEach(el=>{
+      const key = el.getAttribute('data-i18n-html');
+      const val = translations[lang][key];
+      if(val !== undefined) el.innerHTML = val;
+    });
+    document.querySelectorAll('[data-i18n-title]').forEach(el=>{
+      const key = el.getAttribute('data-i18n-title');
+      const val = translations[lang][key];
+      if(val !== undefined){ el.setAttribute('title', val); el.setAttribute('aria-label', val); }
+    });
+    document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active', b.dataset.lang === lang));
+    try{ localStorage.setItem('mu_lang', lang); }catch(e){}
+  }
+
+  document.querySelectorAll('.lang-btn').forEach(btn=>{
+    btn.addEventListener('click', ()=> applyLanguage(btn.dataset.lang));
+  });
+
+  let savedLang = 'en';
+  try{ savedLang = localStorage.getItem('mu_lang') || 'en'; }catch(e){}
+  applyLanguage(savedLang);
+
   // progress bar + navbar scroll state
   const progressBar = document.getElementById('progressBar');
   const navbar = document.getElementById('navbar');
