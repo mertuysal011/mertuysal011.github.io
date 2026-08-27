@@ -233,6 +233,7 @@
     padding:26px 20px;transition:border-color .25s ease,transform .25s ease;
   }
   .stat-card:hover{border-color:var(--accent);transform:translateY(-4px);}
+  .stat-wide{grid-column:1 / -1;}
   .stat-number{font-family:'JetBrains Mono',monospace;font-size:2.1rem;font-weight:700;color:var(--accent);}
   .stat-label{font-size:.85rem;color:var(--text-dim);margin-top:4px;}
 
@@ -320,7 +321,7 @@
   .contact-wrap{text-align:center;}
   .contact-wrap .section-title{margin-bottom:16px;}
   .contact-sub{color:var(--text-dim);max-width:520px;margin:0 auto 50px;}
-  .contact-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;}
+  .contact-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
   .contact-card{
     background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
     padding:28px 18px;transition:all .25s ease;
@@ -348,7 +349,7 @@
   @media (max-width:860px){
     .about-grid{grid-template-columns:1fr;gap:40px;}
     .cert-grid{grid-template-columns:repeat(2,1fr);}
-    .contact-grid{grid-template-columns:repeat(3,1fr);}
+    .contact-grid{grid-template-columns:repeat(2,1fr);}
   }
 
   @media (max-width:720px){
@@ -429,9 +430,6 @@
       <a class="social-btn" href="https://github.com/mertuysal011" target="_blank" rel="noopener" data-i18n-title="social.github" aria-label="GitHub" title="GitHub">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49 0-.24-.01-1.04-.01-1.89-2.78.62-3.37-1.22-3.37-1.22-.45-1.19-1.11-1.51-1.11-1.51-.91-.64.07-.63.07-.63 1 .07 1.53 1.05 1.53 1.05.89 1.57 2.34 1.12 2.91.86.09-.66.35-1.12.63-1.38-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.72 0 0 .84-.28 2.75 1.05a9.29 9.29 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.46.1 2.72.64.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.79-4.57 5.05.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.6.69.49A10.26 10.26 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></svg>
       </a>
-      <a class="social-btn" href="tel:+905439290458" data-i18n-title="social.phone" aria-label="Phone" title="Phone">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-      </a>
     </div>
   </div>
   <div class="scroll-indicator"><span data-i18n="hero.scroll">Scroll</span><span class="line"></span></div>
@@ -449,8 +447,7 @@
         <p data-i18n="about.p3">I'm driven by making security tangible — translating frameworks and audits into architectures, policies and training that organizations can actually run on.</p>
       </div>
       <div class="stats-grid reveal">
-        <div class="stat-card"><div class="stat-number">6+</div><div class="stat-label" data-i18n="stats.years">Years in Cybersecurity</div></div>
-        <div class="stat-card"><div class="stat-number">3</div><div class="stat-label" data-i18n="stats.orgs">Organizations</div></div>
+        <div class="stat-card stat-wide"><div class="stat-number">6+</div><div class="stat-label" data-i18n="stats.years">Years in Cybersecurity</div></div>
         <div class="stat-card"><div class="stat-number">6</div><div class="stat-label" data-i18n="stats.certs">Certifications</div></div>
         <div class="stat-card"><div class="stat-number">3</div><div class="stat-label" data-i18n="stats.langs">Languages Spoken</div></div>
       </div>
@@ -464,6 +461,17 @@
     <span class="section-tag" data-i18n="experience.tag">Career Path</span>
     <h2 class="section-title" data-i18n="experience.title">Experience</h2>
     <div class="timeline">
+
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-head">
+            <span class="tl-role" data-i18n="exp.meta.role">Senior Global GRC Specialist</span>
+            <span class="tl-date" data-i18n="exp.meta.date">September 2026 — Present</span>
+          </div>
+          <div class="tl-company">Meta Cyber</div>
+        </div>
+      </div>
 
       <div class="tl-item reveal">
         <div class="tl-dot"></div>
@@ -667,11 +675,6 @@
         <div class="c-label" data-i18n="contact.email.label">Email</div>
         <div class="c-value">mertuysal011@gmail.com</div>
       </a>
-      <a class="contact-card" href="tel:+905439290458">
-        <div class="c-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
-        <div class="c-label" data-i18n="contact.phone.label">Phone</div>
-        <div class="c-value">+90 543 929 04 58</div>
-      </a>
       <a class="contact-card" href="https://www.linkedin.com/in/mert--uysal/" target="_blank" rel="noopener">
         <div class="c-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.85 0-2.14 1.45-2.14 2.94v5.66H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.11 20.45H3.56V9h3.55v11.45z"/></svg></div>
         <div class="c-label" data-i18n="contact.linkedin.label">LinkedIn</div>
@@ -704,13 +707,14 @@
       "hero.role":"Cybersecurity & GRC Professional",
       "hero.desc":"I help organizations design resilient security architectures, navigate compliance frameworks, and turn risk into strategy — from 24×7 SOC operations to executive-level ISMS governance.",
       "hero.scroll":"Scroll",
-      "social.email":"Email","social.linkedin":"LinkedIn","social.github":"GitHub","social.phone":"Phone",
+      "social.email":"Email","social.linkedin":"LinkedIn","social.github":"GitHub",
       "about.tag":"Who I am","about.title":"About",
       "about.p1":"With a career spanning <strong>SOC analysis</strong>, <strong>ISO 27001 audits</strong>, and <strong>enterprise security architecture</strong>, I bridge the gap between technical security operations and business-aligned governance.",
       "about.p2":"Currently a <strong>Security Engineer at Desoft</strong>, I design security architectures for enterprise clients and guide the adoption of API security and cyber threat intelligence solutions. Previously at <strong>PwC</strong>, I led ISO 27001, GDPR, SWIFT CSP and NIST CSF assessments for major organizations, and at <strong>KKB — Credit Bureau of Turkey</strong>, I defended a 24×7 Cyber Defence Center as a security analyst.",
       "about.p3":"I'm driven by making security tangible — translating frameworks and audits into architectures, policies and training that organizations can actually run on.",
-      "stats.years":"Years in Cybersecurity","stats.orgs":"Organizations","stats.certs":"Certifications","stats.langs":"Languages Spoken",
+      "stats.years":"Years in Cybersecurity","stats.certs":"Certifications","stats.langs":"Languages Spoken",
       "experience.tag":"Career Path","experience.title":"Experience",
+      "exp.meta.role":"Senior Global GRC Specialist","exp.meta.date":"September 2026 — Present",
       "exp.desoft.role":"Security Solutions Architect","exp.desoft.date":"March 2024 — August 2026",
       "exp.desoft.b1":"Executed technical PoC evaluations for API Security and CTI solutions, leveraging Wallarm and ZeroFox",
       "exp.desoft.b2":"Monitored and reported on cyber threat intelligence using ZeroFox",
@@ -750,7 +754,7 @@
       "edu.degree":"B.Sc. Information Systems Engineering","edu.loc":"Sakarya, Turkey",
       "contact.tag":"Get in touch","contact.title":"Let's Connect",
       "contact.sub":"Open to conversations about security architecture, GRC, and cyber risk. Reach out through any of the channels below.",
-      "contact.email.label":"Email","contact.phone.label":"Phone","contact.linkedin.label":"LinkedIn",
+      "contact.email.label":"Email","contact.linkedin.label":"LinkedIn",
       "contact.github.label":"GitHub","contact.location.label":"Location",
       "footer.text":"Built with care."
     },
@@ -761,13 +765,14 @@
       "hero.role":"Siber Güvenlik ve GRC Uzmanı",
       "hero.desc":"Kuruluşların dayanıklı güvenlik mimarileri tasarlamasına, uyumluluk çerçevelerinde yol almasına ve riski stratejiye dönüştürmesine yardımcı oluyorum — 7/24 SOC operasyonlarından yönetici seviyesinde ISMS yönetişimine kadar.",
       "hero.scroll":"Kaydır",
-      "social.email":"E-posta","social.linkedin":"LinkedIn","social.github":"GitHub","social.phone":"Telefon",
+      "social.email":"E-posta","social.linkedin":"LinkedIn","social.github":"GitHub",
       "about.tag":"Ben kimim","about.title":"Hakkımda",
       "about.p1":"<strong>SOC analizi</strong>, <strong>ISO 27001 denetimleri</strong> ve <strong>kurumsal güvenlik mimarisini</strong> kapsayan bir kariyerle, teknik güvenlik operasyonları ile iş hedefleriyle uyumlu yönetişim arasındaki köprüyü kuruyorum.",
       "about.p2":"Şu anda <strong>Desoft'ta Güvenlik Mühendisi</strong> olarak, kurumsal müşteriler için güvenlik mimarileri tasarlıyor, API güvenliği ve siber tehdit istihbaratı çözümlerinin benimsenmesine rehberlik ediyorum. Daha önce <strong>PwC</strong>'de büyük kuruluşlar için ISO 27001, GDPR, SWIFT CSP ve NIST CSF değerlendirmelerine liderlik ettim; <strong>KKB — Kredi Kayıt Bürosu</strong>'nda ise güvenlik analisti olarak 7/24 Siber Savunma Merkezi'ni korudum.",
       "about.p3":"Beni motive eden şey güvenliği somutlaştırmak — çerçeveleri ve denetimleri, kuruluşların gerçekten üzerinde çalışabileceği mimarilere, politikalara ve eğitimlere dönüştürmek.",
-      "stats.years":"Siber Güvenlikte Yıl","stats.orgs":"Kurum","stats.certs":"Sertifika","stats.langs":"Konuşulan Dil",
+      "stats.years":"Siber Güvenlikte Yıl","stats.certs":"Sertifika","stats.langs":"Konuşulan Dil",
       "experience.tag":"Kariyer Yolu","experience.title":"Deneyim",
+      "exp.meta.role":"Yurtdışı Kıdemli Risk ve Uyum Uzmanı","exp.meta.date":"Eylül 2026 — Devam Ediyor",
       "exp.desoft.role":"Güvenlik Çözümleri Mimarı","exp.desoft.date":"Mart 2024 — Ağustos 2026",
       "exp.desoft.b1":"Wallarm ve ZeroFox'tan yararlanarak API Güvenliği ve CTI çözümleri için teknik PoC değerlendirmeleri gerçekleştirdi",
       "exp.desoft.b2":"ZeroFox kullanarak siber tehdit istihbaratını izledi ve raporladı",
@@ -804,10 +809,10 @@
       "cert.sc200.desc":"Güvenlik Operasyonları Analisti",
       "cert.ejpt.desc":"Junior Sızma Testi Uzmanı",
       "edu.tag":"Geçmiş","edu.title":"Eğitim",
-      "edu.degree":"Bilgi Sistemleri Mühendisliği Lisans","edu.loc":"Sakarya, Türkiye",
+      "edu.degree":"Bilişim Sistemleri Mühendisliği Lisans","edu.loc":"Sakarya, Türkiye",
       "contact.tag":"İletişime geç","contact.title":"Hadi Bağlantı Kuralım",
       "contact.sub":"Güvenlik mimarisi, GRC ve siber risk üzerine sohbetlere açığım. Aşağıdaki kanallardan herhangi biri üzerinden ulaşabilirsiniz.",
-      "contact.email.label":"E-posta","contact.phone.label":"Telefon","contact.linkedin.label":"LinkedIn",
+      "contact.email.label":"E-posta","contact.linkedin.label":"LinkedIn",
       "contact.github.label":"GitHub","contact.location.label":"Konum",
       "footer.text":"Özenle hazırlandı."
     },
@@ -818,13 +823,14 @@
       "hero.role":"Profesional de Ciberseguridad y GRC",
       "hero.desc":"Ayudo a las organizaciones a diseñar arquitecturas de seguridad resilientes, navegar marcos de cumplimiento y convertir el riesgo en estrategia — desde operaciones de SOC 24×7 hasta la gobernanza de ISMS a nivel ejecutivo.",
       "hero.scroll":"Desplázate",
-      "social.email":"Correo electrónico","social.linkedin":"LinkedIn","social.github":"GitHub","social.phone":"Teléfono",
+      "social.email":"Correo electrónico","social.linkedin":"LinkedIn","social.github":"GitHub",
       "about.tag":"Quién soy","about.title":"Sobre mí",
       "about.p1":"Con una trayectoria que abarca <strong>análisis de SOC</strong>, <strong>auditorías ISO 27001</strong> y <strong>arquitectura de seguridad empresarial</strong>, conecto las operaciones técnicas de seguridad con la gobernanza alineada al negocio.",
       "about.p2":"Actualmente como <strong>Ingeniero de Seguridad en Desoft</strong>, diseño arquitecturas de seguridad para clientes empresariales y guío la adopción de soluciones de seguridad de API e inteligencia de amenazas. Anteriormente en <strong>PwC</strong>, lideré evaluaciones de ISO 27001, GDPR, SWIFT CSP y NIST CSF para grandes organizaciones, y en <strong>KKB — Buró de Crédito de Turquía</strong>, defendí un Centro de Defensa Cibernética 24×7 como analista de seguridad.",
       "about.p3":"Me motiva hacer tangible la seguridad — traducir marcos y auditorías en arquitecturas, políticas y capacitaciones que las organizaciones puedan realmente utilizar.",
-      "stats.years":"Años en Ciberseguridad","stats.orgs":"Organizaciones","stats.certs":"Certificaciones","stats.langs":"Idiomas Hablados",
+      "stats.years":"Años en Ciberseguridad","stats.certs":"Certificaciones","stats.langs":"Idiomas Hablados",
       "experience.tag":"Trayectoria Profesional","experience.title":"Experiencia",
+      "exp.meta.role":"Especialista Senior en GRC Global","exp.meta.date":"Septiembre 2026 — Presente",
       "exp.desoft.role":"Arquitecto de Soluciones de Seguridad","exp.desoft.date":"Marzo 2024 — Agosto 2026",
       "exp.desoft.b1":"Ejecutó evaluaciones técnicas de PoC para soluciones de Seguridad de API y CTI, utilizando Wallarm y ZeroFox",
       "exp.desoft.b2":"Monitoreó e informó sobre inteligencia de amenazas cibernéticas utilizando ZeroFox",
@@ -864,7 +870,7 @@
       "edu.degree":"Ingeniería en Sistemas de Información (Licenciatura)","edu.loc":"Sakarya, Turquía",
       "contact.tag":"Ponte en contacto","contact.title":"Conectemos",
       "contact.sub":"Abierto a conversaciones sobre arquitectura de seguridad, GRC y riesgo cibernético. Ponte en contacto a través de cualquiera de los siguientes canales.",
-      "contact.email.label":"Correo","contact.phone.label":"Teléfono","contact.linkedin.label":"LinkedIn",
+      "contact.email.label":"Correo","contact.linkedin.label":"LinkedIn",
       "contact.github.label":"GitHub","contact.location.label":"Ubicación",
       "footer.text":"Hecho con dedicación."
     }
